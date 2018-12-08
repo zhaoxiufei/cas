@@ -1,0 +1,12 @@
+{
+  "@class": "org.apereo.cas.services.RegexRegisteredService",
+  "serviceId": "^(http)://www.app2.com.*",
+  "name": "www.app2.com服务",
+  "id": 10002,
+  "description": "这是www.app2.com登录入口",
+  "evaluationOrder": 2,
+  "theme": "app2",
+  "attributeReleasePolicy": {
+    "@class": "org.apereo.cas.services.ReturnAllAttributeReleasePolicy"
+  }
+}
