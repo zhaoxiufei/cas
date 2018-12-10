@@ -1,6 +1,6 @@
 package com.cas.server.factory;
 
-import com.cas.server.service.ICustomQueryUserService;
+import com.cas.query.IQueryUserService;
 import com.google.common.collect.Maps;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -12,17 +12,17 @@ import java.util.Map;
  */
 @SuppressWarnings({"JavaDoc", "SpringJavaAutowiredFieldsWarningInspection"})
 @Component
-public class CustomQueryUserServiceFactory {
-    private Map<String, ICustomQueryUserService> map = Maps.newHashMap();
+public class QueryUserServiceFactory {
+    private Map<String, IQueryUserService> map = Maps.newHashMap();
 
-    @Autowired
-    public void init(ICustomQueryUserService[] customQueryUserServices) {
-        for (ICustomQueryUserService service : customQueryUserServices) {
+    @Autowired(required = false)
+    public void init(IQueryUserService[] customQueryUserServices) {
+        for (IQueryUserService service : customQueryUserServices) {
             map.put(service.support(), service);
         }
     }
 
-    public ICustomQueryUserService getService(String system) {
+    public IQueryUserService getService(String system) {
         return map.get(system);
     }
 }

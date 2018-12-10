@@ -1,6 +1,6 @@
 package com.cas.server.config;
 
-import com.cas.server.factory.CustomQueryUserServiceFactory;
+import com.cas.server.factory.QueryUserServiceFactory;
 import com.cas.server.handler.CustomAuthenticationHandler;
 import org.apereo.cas.authentication.AuthenticationEventExecutionPlan;
 import org.apereo.cas.authentication.AuthenticationEventExecutionPlanConfigurer;
@@ -14,6 +14,8 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import javax.servlet.http.HttpSession;
+
 @SuppressWarnings({"SpringJavaInjectionPointsAutowiringInspection", "SpringJavaAutowiredFieldsWarningInspection", "SpringFacetCodeInspection"})
 @Configuration
 @EnableConfigurationProperties(CasConfigurationProperties.class)
@@ -24,7 +26,9 @@ public class CustomAuthenticationEventExecutionPlanConfigurer implements Authent
     private ServicesManager servicesManager;
 
     @Autowired
-    private CustomQueryUserServiceFactory customQueryUserServiceFactory;
+    private QueryUserServiceFactory queryUserServiceFactory;
+    @Autowired
+    private HttpSession httpSession;
 
 
     @Bean
@@ -34,7 +38,8 @@ public class CustomAuthenticationEventExecutionPlanConfigurer implements Authent
                 servicesManager,
                 new DefaultPrincipalFactory(),
                 1);
-        handler.setCustomQueryUserServiceFactory(customQueryUserServiceFactory);
+        handler.setQueryUserServiceFactory(queryUserServiceFactory);
+        handler.setHttpSession(httpSession);
         return handler;
     }
 

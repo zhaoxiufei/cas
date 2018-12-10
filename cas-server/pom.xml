@@ -31,6 +31,16 @@
         ...Additional dependencies may be placed here...
         -->
 
+        <dependency>
+            <groupId>com.cas</groupId>
+            <artifactId>cas-query-interfaces</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.cas</groupId>
+            <artifactId>cas-app1-query</artifactId>
+            <version>1.0.0</version>
+        </dependency>
         <!--分布式支持-->
         <dependency>
             <groupId>org.apereo.cas</groupId>
@@ -40,11 +50,6 @@
         <dependency>
             <groupId>org.apereo.cas</groupId>
             <artifactId>cas-server-webapp-session-redis</artifactId>
-        </dependency>
-        <!--支持rest访问-->
-        <dependency>
-            <groupId>org.apereo.cas</groupId>
-            <artifactId>cas-server-support-rest</artifactId>
         </dependency>
         <!--自定义验证 开始-->
         <dependency>
@@ -68,6 +73,14 @@
             <artifactId>cas-server-core-webflow-api</artifactId>
         </dependency>
         <!--自定义验证 结束-->
+        <!-- google captcha 生成验证码 -->
+        <!-- https://mvnrepository.com/artifact/com.cuisongliu/kaptcha-spring-boot-autoconfigure -->
+        <dependency>
+            <groupId>com.cuisongliu</groupId>
+            <artifactId>kaptcha-spring-boot-autoconfigure</artifactId>
+            <version>1.3</version>
+        </dependency>
+
     </dependencies>
     <build>
         <plugins>

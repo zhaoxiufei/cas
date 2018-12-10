@@ -9,10 +9,12 @@
     <packaging>pom</packaging>
     <version>1.0.0</version>
     <modules>
+        <module>cas-query-interfaces</module>
         <module>cas-server</module>
+        <module>casclient-spring-boot-starter</module>
         <module>cas-app1</module>
         <module>cas-app2</module>
-        <module>casclient-spring-boot-starter</module>
+        <module>cas-app1-query</module>
     </modules>
 
     <properties>

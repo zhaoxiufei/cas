@@ -1,4 +1,4 @@
-package com.wdcloud.app1;
+package com.cas.app1;
 
 import org.jasig.cas.client.authentication.AttributePrincipal;
 import org.springframework.stereotype.Controller;

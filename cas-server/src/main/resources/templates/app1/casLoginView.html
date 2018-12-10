@@ -39,6 +39,19 @@
                        th:value="123456"/>
             </div>
         </section>
+        <!--判断是否需要验证码-->
+        <h4 th:utext="${session.usernameAndPasswordError}"></h4>
+        <section class="row" th:if="${session.usernameAndPasswordError}">
+            <label for="captcha" th:utext="#{screen.welcome.label.captcha}"/>
+            <div>
+                <input class="required" type="text" id="captcha" size="25" tabindex="2"
+                       th:accesskey="#{screen.welcome.label.captcha.accesskey}"
+                       th:field="*{captcha}"
+                       autocomplete="off"
+                       th:value="123456"/>
+                <img src="kaptcha" th:alt="#{screen.welcome.label.captcha}"/>
+            </div>
+        </section>
         <section>
             <input type="hidden" name="system" th:value="${#themes.code('myself.system')}"/>
             <input type="hidden" name="execution" th:value="${flowExecutionKey}"/>
