@@ -23,13 +23,13 @@ public class App1QueryConfiguration {
     }
 
     public DataSource dataSource() {
+        //TODO 数据源
         HikariConfig config = new HikariConfig();
         config.setJdbcUrl("jdbc:mysql://192.168.9.240:3306/lms?characterEncoding=utf8&serverTimezone=UTC&useSSL=false&allowPublicKeyRetrieval=true");
         config.setUsername("lms");
         config.setPassword("lmsZdWI1o");
         config.setDriverClassName("com.mysql.cj.jdbc.Driver");
-        HikariDataSource dataSource = new HikariDataSource(config);
-        return dataSource;
+        return new HikariDataSource(config);
     }
 
     public JdbcTemplate jdbcTemplate() {
