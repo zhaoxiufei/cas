@@ -1,7 +1,7 @@
 {
   "@class": "org.apereo.cas.services.RegexRegisteredService",
   "serviceId": "^(http)://www.app1.com.*",
-  "name": "www.app1.com服务",
+  "name": "www.app1.com",
   "id": 10001,
   "description": "这是www.app1.com登录入口",
   "evaluationOrder": 1,
