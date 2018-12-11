@@ -6,12 +6,12 @@ import javax.security.auth.login.AccountException;
  * @author 赵秀非
  */
 @SuppressWarnings({"JavaDoc", "SpringJavaAutowiredFieldsWarningInspection"})
-public class CaptchaRequierException extends AccountException {
-    public CaptchaRequierException() {
+public class CaptchaRequiredException extends AccountException {
+    public CaptchaRequiredException() {
         super();
     }
 
-    public CaptchaRequierException(String msg) {
+    public CaptchaRequiredException(String msg) {
         super(msg);
     }
 }

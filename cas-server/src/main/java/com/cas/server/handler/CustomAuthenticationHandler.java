@@ -3,7 +3,7 @@ package com.cas.server.handler;
 import com.cas.query.IQueryUserService;
 import com.cas.server.CustomCredential;
 import com.cas.server.exception.CaptchaErrorException;
-import com.cas.server.exception.CaptchaRequierException;
+import com.cas.server.exception.CaptchaRequiredException;
 import com.cas.server.factory.QueryUserServiceFactory;
 import com.cuisongliu.kaptcha.autoconfigure.util.KaptchaUtil;
 import org.apache.commons.lang3.StringUtils;
@@ -43,7 +43,7 @@ public class CustomAuthenticationHandler extends AbstractPreAndPostProcessingAut
         if (httpSession.getAttribute("usernameAndPasswordError") != null) {//需要校验
             String requestCaptcha = customCredential.getCaptcha();
             if (StringUtils.isEmpty(requestCaptcha)) {
-                throw new CaptchaRequierException("验证码必须输入项");
+                throw new CaptchaRequiredException("验证码必须输入项");
             }
             String sessionValue = (String) httpSession.getAttribute(KaptchaUtil.kaptchaKeyGenerator(""));
             if (!sessionValue.equals(requestCaptcha)) {
