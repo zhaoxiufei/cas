@@ -24,7 +24,8 @@ cas 5.3.6
 - cas-query-interfaces 查询用户接口
 - cas-casclient-spring-boot-starter springboot 集成客户端实现
 
-### 
+### 主题说明
+不同主题对应不同查询实现 使用theme作为区分标识
 
 　
 
