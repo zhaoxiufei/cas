@@ -15,11 +15,10 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
-
         <dependency>
-            <groupId>com.wdcloud</groupId>
-            <artifactId>cas-boot-starter</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <groupId>com.cas</groupId>
+            <artifactId>casclient-spring-boot-starter</artifactId>
+            <version>${project.parent.version}</version>
         </dependency>
     </dependencies>
     <build>
