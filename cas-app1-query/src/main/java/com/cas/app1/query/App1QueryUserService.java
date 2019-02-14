@@ -22,8 +22,8 @@ public class App1QueryUserService implements IQueryUserService {
 
     @Override
     public Map<String, Object> query(String username, String password) throws AccountException {
-        final List<Map<String, Object>> queryForMap = jdbcTemplate.queryForList("select * from sys_user where username =?", new Object[]{username});
-        if (queryForMap.size() == 0) {
+        final List<Map<String, Object>> queryForMap = jdbcTemplate.queryForList("select * from sys_user where username =?", username);
+        if (queryForMap.isEmpty()) {
             throw new AccountNotFoundException();
         }
         return queryForMap.get(0);
