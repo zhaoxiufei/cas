@@ -1,0 +1,12 @@
+{
+  "@class": "org.apereo.cas.services.RegexRegisteredService",
+  "serviceId": "^(http)://www.lms.com.*",
+  "name": "www.lms.com",
+  "id": 10003,
+  "description": "这是www.lms.com登录入口",
+  "evaluationOrder": 1,
+  "theme": "lms",
+  "attributeReleasePolicy": {
+    "@class": "org.apereo.cas.services.ReturnAllAttributeReleasePolicy"
+  }
+}

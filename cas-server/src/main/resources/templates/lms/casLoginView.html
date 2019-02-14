@@ -1,0 +1,107 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title th:text="${#themes.code('cas.page.title')}"></title>
+    <link rel="stylesheet" th:href="@{${#themes.code('cas.standard.css.file')}}"/>
+    <link rel="stylesheet" th:href="@{${#themes.code('cas.myself.css')}}"/>
+    <script th:src="@{${#themes.code('cas.javascript.file')}}"></script>
+</head>
+
+<body class="login">
+<main role="main" class="container">
+    <div class="row">
+        <div class="col-sm-5">
+            <!-- Login form template begins here -->
+            <div class="card">
+                <div class="card-header text-center">
+                    <h2 th:text="${registeredService.name}">Login</h2>
+                </div>
+                <div class="card-body">
+                    <form method="post" id="fm1" th:object="${credential}" action="login">
+                        <div class="alert alert-danger" th:if="${#fields.hasErrors('*')}">
+                            <span th:each="err : ${#fields.errors('*')}" th:utext="${err}">Example error</span>
+                        </div>
+
+                        <h3 th:utext="#{screen.welcome.instructions}">Enter your Username and Password</h3>
+
+                        <section class="form-group">
+                            <label for="username" th:utext="#{screen.welcome.label.netid}">Username</label>
+                            <div>
+                                <input class="form-control required"
+                                       id="username"
+                                       size="25"
+                                       tabindex="1"
+                                       type="text"
+                                       th:disabled="${guaEnabled}"
+                                       th:field="*{username}"
+                                       th:accesskey="#{screen.welcome.label.netid.accesskey}"
+                                       autocomplete="off"/>
+                            </div>
+                        </section>
+
+                        <section class="form-group">
+                            <label for="password" th:utext="#{screen.welcome.label.password}">Password</label>
+
+                            <div>
+                                <input class="form-control required"
+                                       type="password"
+                                       id="password"
+                                       size="25"
+                                       tabindex="2"
+                                       th:accesskey="#{screen.welcome.label.password.accesskey}"
+                                       th:field="*{password}"
+                                       autocomplete="off"/>
+                            </div>
+                        </section>
+                        <section class="form-group" th:if="${session.usernameAndPasswordError}">
+                            <label for="captcha" th:utext="#{screen.welcome.label.captcha}">验证码</label>
+                            <div>
+                                <input class="form-control required"
+                                       style="width:64%;display: inline-block"
+                                       type="text"
+                                       id="captcha"
+                                       size="25"
+                                       tabindex="3"
+                                       th:accesskey="#{screen.welcome.label.captcha.accesskey}"
+                                       th:field="*{captcha}"
+                                       autocomplete="off"
+                                       th:value="123456"/>
+                                <img src="kaptcha" width="130" height="36" th:alt="#{screen.welcome.label.captcha}"/>
+                            </div>
+                        </section>
+                        <input type="hidden" name="system" th:value="${registeredService.theme}"/>
+                        <input type="hidden" name="execution" th:value="${flowExecutionKey}"/>
+                        <input type="hidden" name="_eventId" value="submit"/>
+                        <input type="hidden" name="geolocation"/>
+                        <input class="btn btn-block btn-submit"
+                               name="submit"
+                               accesskey="l"
+                               th:value="#{screen.welcome.button.login}"
+                               tabindex="6"
+                               type="submit"
+                               value="Login3"
+                        />
+                    </form>
+
+                    <script type="text/javascript" th:inline="javascript">
+                        var i = [[#{screen.welcome.button.loginwip}]]
+                        $(document).ready(function () {
+                            $("#fm1").submit(function () {
+                                $(":submit").attr("disabled", true);
+                                $(":submit").attr("value", i);
+                                console.log(i);
+                                return true;
+                            });
+                        });
+                    </script>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+</body>
+</html>

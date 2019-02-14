@@ -38,7 +38,7 @@
         </dependency>
         <dependency>
             <groupId>com.cas</groupId>
-            <artifactId>cas-app1-query</artifactId>
+            <artifactId>cas-lms-query</artifactId>
             <version>1.0.0</version>
         </dependency>
         <!--分布式支持-->
